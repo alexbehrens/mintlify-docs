@@ -1,33 +1,1788 @@
----
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
----
+# Forta API GraphQL API Reference
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+Free GraphQL API access to alerts and blockchain projects data
 
-## Welcome
+[GraphQL](https://graphql.org/)##### Terms of Service
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
+https://forta.org/terms-of-use/
 
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+[https://forta.org/terms-of-use/](https://forta.org/terms-of-use/)##### API Endpoints
 
-## Authentication
-
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
-
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
 ```
+https://api.forta.network/graphql
+```
+
+`https://api.forta.network/graphql`## Forta API Support
+
+The API is in beta mode. If you see any bugs or issues, please let us know at github:forta-network/forta-api or discord.
+
+[github:forta-network/forta-api](https://github.com/forta-network/forta-api/issues/new/choose)[discord](https://discord.gg/KACdTEutQq)# Queries
+
+## 
+alerts
+
+`alerts`##### Description
+
+Fetches alerts
+
+##### Response
+
+ Returns an AlertsResponse
+
+[AlertsResponse](#definition-AlertsResponse)`AlertsResponse`##### Arguments
+
+`input`[AlertsInput](#definition-AlertsInput)`AlertsInput`#### Example
+
+##### Query
+
+```
+query alerts($input: AlertsInput) {
+  alerts(input: $input) {
+    alerts {
+      ...AlertFragment
+    }
+    pageInfo {
+      ...AlertPageInfoFragment
+    }
+  }
+}
+
+```
+
+`query alerts($input: AlertsInput) {
+  alerts(input: $input) {
+    alerts {
+      ...AlertFragment
+    }
+    pageInfo {
+      ...AlertPageInfoFragment
+    }
+  }
+}
+`##### Variables
+
+```
+{"input": AlertsInput}
+
+```
+
+`{"input": AlertsInput}
+`##### Response
+
+```
+{
+  "data": {
+    "alerts": {
+      "alerts": [Alert],
+      "pageInfo": AlertPageInfo
+    }
+  }
+}
+
+```
+
+`{
+  "data": {
+    "alerts": {
+      "alerts": [Alert],
+      "pageInfo": AlertPageInfo
+    }
+  }
+}
+`[Queries](#group-Operations-Queries)## 
+batch
+
+`batch`##### Description
+
+Fetches a batch given its batch ID
+
+##### Response
+
+ Returns a Batch
+
+[Batch](#definition-Batch)`Batch`##### Arguments
+
+`id`[String!](#definition-String)`String!`#### Example
+
+##### Query
+
+```
+query batch($id: String!) {
+  batch(id: $id) {
+    id
+    parentId
+    createdAt
+    chainId
+    scanNodeId
+    receiptId
+  }
+}
+
+```
+
+`query batch($id: String!) {
+  batch(id: $id) {
+    id
+    parentId
+    createdAt
+    chainId
+    scanNodeId
+    receiptId
+  }
+}
+`##### Variables
+
+```
+{"id": "xyz789"}
+
+```
+
+`{"id": "xyz789"}
+`##### Response
+
+```
+{
+  "data": {
+    "batch": {
+      "id": "abc123",
+      "parentId": "xyz789",
+      "createdAt": "xyz789",
+      "chainId": 123,
+      "scanNodeId": "xyz789",
+      "receiptId": "abc123"
+    }
+  }
+}
+
+```
+
+`{
+  "data": {
+    "batch": {
+      "id": "abc123",
+      "parentId": "xyz789",
+      "createdAt": "xyz789",
+      "chainId": 123,
+      "scanNodeId": "xyz789",
+      "receiptId": "abc123"
+    }
+  }
+}
+`[Queries](#group-Operations-Queries)## 
+batches
+
+`batches`##### Description
+
+Fetches batches
+
+##### Response
+
+ Returns a BatchesResponse
+
+[BatchesResponse](#definition-BatchesResponse)`BatchesResponse`##### Arguments
+
+`input`[BatchesInput](#definition-BatchesInput)`BatchesInput`#### Example
+
+##### Query
+
+```
+query batches($input: BatchesInput) {
+  batches(input: $input) {
+    batches {
+      ...BatchFragment
+    }
+    pageInfo {
+      ...BatchPageInfoFragment
+    }
+  }
+}
+
+```
+
+`query batches($input: BatchesInput) {
+  batches(input: $input) {
+    batches {
+      ...BatchFragment
+    }
+    pageInfo {
+      ...BatchPageInfoFragment
+    }
+  }
+}
+`##### Variables
+
+```
+{"input": BatchesInput}
+
+```
+
+`{"input": BatchesInput}
+`##### Response
+
+```
+{
+  "data": {
+    "batches": {
+      "batches": [Batch],
+      "pageInfo": BatchPageInfo
+    }
+  }
+}
+
+```
+
+`{
+  "data": {
+    "batches": {
+      "batches": [Batch],
+      "pageInfo": BatchPageInfo
+    }
+  }
+}
+`[Queries](#group-Operations-Queries)## 
+bots
+
+`bots`##### Description
+
+Fetches bots
+
+##### Response
+
+ Returns a BotsResponse
+
+[BotsResponse](#definition-BotsResponse)`BotsResponse`##### Arguments
+
+`input`[BotsInput](#definition-BotsInput)`BotsInput`#### Example
+
+##### Query
+
+```
+query bots($input: BotsInput) {
+  bots(input: $input) {
+    bots {
+      ...BotFragment
+    }
+    pageInfo {
+      ...BotPageInfoFragment
+    }
+  }
+}
+
+```
+
+`query bots($input: BotsInput) {
+  bots(input: $input) {
+    bots {
+      ...BotFragment
+    }
+    pageInfo {
+      ...BotPageInfoFragment
+    }
+  }
+}
+`##### Variables
+
+```
+{"input": BotsInput}
+
+```
+
+`{"input": BotsInput}
+`##### Response
+
+```
+{
+  "data": {
+    "bots": {
+      "bots": [Bot],
+      "pageInfo": BotPageInfo
+    }
+  }
+}
+
+```
+
+`{
+  "data": {
+    "bots": {
+      "bots": [Bot],
+      "pageInfo": BotPageInfo
+    }
+  }
+}
+`[Queries](#group-Operations-Queries)## 
+labels
+
+`labels`##### Description
+
+Fetches labels
+
+##### Response
+
+ Returns a LabelsResponse
+
+[LabelsResponse](#definition-LabelsResponse)`LabelsResponse`##### Arguments
+
+`input`[LabelsInput](#definition-LabelsInput)`LabelsInput`#### Example
+
+##### Query
+
+```
+query labels($input: LabelsInput) {
+  labels(input: $input) {
+    labels {
+      ...LabelEventFragment
+    }
+    pageInfo {
+      ...LabelPageInfoFragment
+    }
+  }
+}
+
+```
+
+`query labels($input: LabelsInput) {
+  labels(input: $input) {
+    labels {
+      ...LabelEventFragment
+    }
+    pageInfo {
+      ...LabelPageInfoFragment
+    }
+  }
+}
+`##### Variables
+
+```
+{"input": LabelsInput}
+
+```
+
+`{"input": LabelsInput}
+`##### Response
+
+```
+{
+  "data": {
+    "labels": {
+      "labels": [LabelEvent],
+      "pageInfo": LabelPageInfo
+    }
+  }
+}
+
+```
+
+`{
+  "data": {
+    "labels": {
+      "labels": [LabelEvent],
+      "pageInfo": LabelPageInfo
+    }
+  }
+}
+`[Queries](#group-Operations-Queries)## 
+project
+
+`project`##### Description
+
+Fetches a web3 project given its project ID
+
+##### Response
+
+ Returns a Project
+
+[Project](#definition-Project)`Project`##### Arguments
+
+`id`[String!](#definition-String)`String!`#### Example
+
+##### Query
+
+```
+query project($id: String!) {
+  project(id: $id) {
+    contacts {
+      ...ContactsFragment
+    }
+    name
+    id
+    social {
+      ...SocialFragment
+    }
+    token {
+      ...TokenFragment
+    }
+    website
+  }
+}
+
+```
+
+`query project($id: String!) {
+  project(id: $id) {
+    contacts {
+      ...ContactsFragment
+    }
+    name
+    id
+    social {
+      ...SocialFragment
+    }
+    token {
+      ...TokenFragment
+    }
+    website
+  }
+}
+`##### Variables
+
+```
+{"id": "xyz789"}
+
+```
+
+`{"id": "xyz789"}
+`##### Response
+
+```
+{
+  "data": {
+    "project": {
+      "contacts": Contacts,
+      "name": "abc123",
+      "id": "xyz789",
+      "social": Social,
+      "token": Token,
+      "website": "abc123"
+    }
+  }
+}
+
+```
+
+`{
+  "data": {
+    "project": {
+      "contacts": Contacts,
+      "name": "abc123",
+      "id": "xyz789",
+      "social": Social,
+      "token": Token,
+      "website": "abc123"
+    }
+  }
+}
+`[Queries](#group-Operations-Queries)## 
+projects
+
+`projects`##### Description
+
+Fetches all existing web3 projects recorded in github repo: https://github.com/ethereum-lists/contracts/tree/main/projects
+
+[https://github.com/ethereum-lists/contracts/tree/main/projects](https://github.com/ethereum-lists/contracts/tree/main/projects)##### Response
+
+ Returns a ProjectsResponse
+
+[ProjectsResponse](#definition-ProjectsResponse)`ProjectsResponse`##### Arguments
+
+`input`[ProjectsInput](#definition-ProjectsInput)`ProjectsInput`#### Example
+
+##### Query
+
+```
+query projects($input: ProjectsInput) {
+  projects(input: $input) {
+    edges {
+      ...ProjectEdgeFragment
+    }
+    pageInfo {
+      ...ProjectPageInfoFragment
+    }
+  }
+}
+
+```
+
+`query projects($input: ProjectsInput) {
+  projects(input: $input) {
+    edges {
+      ...ProjectEdgeFragment
+    }
+    pageInfo {
+      ...ProjectPageInfoFragment
+    }
+  }
+}
+`##### Variables
+
+```
+{"input": ProjectsInput}
+
+```
+
+`{"input": ProjectsInput}
+`##### Response
+
+```
+{
+  "data": {
+    "projects": {
+      "edges": [ProjectEdge],
+      "pageInfo": ProjectPageInfo
+    }
+  }
+}
+
+```
+
+`{
+  "data": {
+    "projects": {
+      "edges": [ProjectEdge],
+      "pageInfo": ProjectPageInfo
+    }
+  }
+}
+`# Types
+
+## Alert
+
+##### Description
+
+Alert information
+
+##### Fields
+
+`alertId`[String](#definition-String)`String``addresses`[[String]](#definition-String)`[String]``contracts`[[Contract]](#definition-Contract)`[Contract]``createdAt`[String](#definition-String)`String``description`[String](#definition-String)`String``hash`[String](#definition-String)`String``metadata`[JSONObject](#definition-JSONObject)`JSONObject``name`[String](#definition-String)`String``projects`[[Project]](#definition-Project)`[Project]``protocol`[String](#definition-String)`String``scanNodeCount`[Int](#definition-Int)`Int``severity`[String](#definition-String)`String`Impact level of finding
+
+CRITICAL - Exploitable vulnerabilities, massive impact on users/funds
+
+HIGH - Exploitable under more specific conditions, significant impact on users/funds
+
+MEDIUM - Notable unexpected behaviours, moderate to low impact on users/funds
+
+LOW - Minor oversights, negligible impact on users/funds
+
+INFO - Miscellaneous behaviours worth describing
+
+`source`[AlertSource](#definition-AlertSource)`AlertSource``findingType`[String](#definition-String)`String`Type of finding
+
+UNKNOWN_TYPE
+
+EXPLOIT
+
+SUSPICIOUS
+
+DEGRADED
+
+INFO
+
+`alertDocumentType`[String](#definition-String)`String``relatedAlerts`[[String]](#definition-String)`[String]``chainId`[NonNegativeInt](#definition-NonNegativeInt)`NonNegativeInt``labels`[[Label]](#definition-Label)`[Label]``addressBloomFilter`[BloomFilter](#definition-BloomFilter)`BloomFilter``truncated`[Boolean](#definition-Boolean)`Boolean`##### Example
+
+```
+{
+  "alertId": "abc123",
+  "addresses": ["abc123"],
+  "contracts": [Contract],
+  "createdAt": "abc123",
+  "description": "abc123",
+  "hash": "abc123",
+  "metadata": {},
+  "name": "xyz789",
+  "projects": [Project],
+  "protocol": "xyz789",
+  "scanNodeCount": 987,
+  "severity": "xyz789",
+  "source": AlertSource,
+  "findingType": "xyz789",
+  "alertDocumentType": "abc123",
+  "relatedAlerts": ["abc123"],
+  "chainId": 123,
+  "labels": [Label],
+  "addressBloomFilter": BloomFilter,
+  "truncated": true
+}
+
+```
+
+`{
+  "alertId": "abc123",
+  "addresses": ["abc123"],
+  "contracts": [Contract],
+  "createdAt": "abc123",
+  "description": "abc123",
+  "hash": "abc123",
+  "metadata": {},
+  "name": "xyz789",
+  "projects": [Project],
+  "protocol": "xyz789",
+  "scanNodeCount": 987,
+  "severity": "xyz789",
+  "source": AlertSource,
+  "findingType": "xyz789",
+  "alertDocumentType": "abc123",
+  "relatedAlerts": ["abc123"],
+  "chainId": 123,
+  "labels": [Label],
+  "addressBloomFilter": BloomFilter,
+  "truncated": true
+}
+`[Types](#group-Types)## AlertEndCursor
+
+##### Fields
+
+`blockNumber`[NonNegativeInt!](#definition-NonNegativeInt)`NonNegativeInt!``alertId`[String!](#definition-String)`String!`##### Example
+
+```
+{"blockNumber": 123, "alertId": "xyz789"}
+
+```
+
+`{"blockNumber": 123, "alertId": "xyz789"}
+`[Types](#group-Types)## AlertEndCursorInput
+
+##### Description
+
+Search after specified block number and alertId
+
+##### Fields
+
+`blockNumber`[NonNegativeInt!](#definition-NonNegativeInt)`NonNegativeInt!``alertId`[String!](#definition-String)`String!`##### Example
+
+```
+{"blockNumber": 123, "alertId": "xyz789"}
+
+```
+
+`{"blockNumber": 123, "alertId": "xyz789"}
+`[Types](#group-Types)## AlertPageInfo
+
+##### Fields
+
+`endCursor`[AlertEndCursor!](#definition-AlertEndCursor)`AlertEndCursor!``hasNextPage`[Boolean!](#definition-Boolean)`Boolean!``totalAlerts`[TotalMetadata!](#definition-TotalMetadata)`TotalMetadata!`##### Example
+
+```
+{
+  "endCursor": AlertEndCursor,
+  "hasNextPage": true,
+  "totalAlerts": TotalMetadata
+}
+
+```
+
+`{
+  "endCursor": AlertEndCursor,
+  "hasNextPage": true,
+  "totalAlerts": TotalMetadata
+}
+`[Types](#group-Types)## AlertSource
+
+##### Description
+
+Source where the threat was detected
+
+##### Fields
+
+`transactionHash`[String](#definition-String)`String``bot`[Bot](#definition-Bot)`Bot``block`[Block](#definition-Block)`Block``sourceAlert`[SourceAlertEvent](#definition-SourceAlertEvent)`SourceAlertEvent`##### Example
+
+```
+{
+  "transactionHash": "abc123",
+  "bot": Bot,
+  "block": Block,
+  "sourceAlert": SourceAlertEvent
+}
+
+```
+
+`{
+  "transactionHash": "abc123",
+  "bot": Bot,
+  "block": Block,
+  "sourceAlert": SourceAlertEvent
+}
+`[Types](#group-Types)## AlertsInput
+
+##### Description
+
+Alert list input
+
+##### Fields
+
+`addresses`[[String]](#definition-String)`[String]``after`[AlertEndCursorInput](#definition-AlertEndCursorInput)`AlertEndCursorInput``alertId`[String](#definition-String)`String``alertIds`[[String]](#definition-String)`[String]``alertHash`[String](#definition-String)`String``alertName`[String](#definition-String)`String``blockDateRange`[DateRange](#definition-DateRange)`DateRange``blockNumberRange`[BlockRange](#definition-BlockRange)`BlockRange``blockTimestampRange`[TimestampRange](#definition-TimestampRange)`TimestampRange``blockSortDirection`[Sort](#definition-Sort)`Sort``bots`[[String]](#definition-String)`[String]``chainId`[NonNegativeInt](#definition-NonNegativeInt)`NonNegativeInt``createdSince`[NonNegativeInt](#definition-NonNegativeInt)`NonNegativeInt``createdBefore`[NonNegativeInt](#definition-NonNegativeInt)`NonNegativeInt``first`[NonNegativeInt](#definition-NonNegativeInt)`NonNegativeInt``projectId`[String](#definition-String)`String``scanNodeConfirmations`[scanNodeFilters](#definition-scanNodeFilters)`scanNodeFilters``severities`[[String]](#definition-String)`[String]``transactionHash`[String](#definition-String)`String``labelMetadata`[String](#definition-String)`String``afterCreatedAtDate`[String](#definition-String)`String``beforeCreatedAtDate`[String](#definition-String)`String`##### Example
+
+```
+{
+  "addresses": ["abc123"],
+  "after": AlertEndCursorInput,
+  "alertId": "xyz789",
+  "alertIds": ["abc123"],
+  "alertHash": "xyz789",
+  "alertName": "xyz789",
+  "blockDateRange": DateRange,
+  "blockNumberRange": BlockRange,
+  "blockTimestampRange": TimestampRange,
+  "blockSortDirection": "asc",
+  "bots": ["abc123"],
+  "chainId": 123,
+  "createdSince": 123,
+  "createdBefore": 123,
+  "first": 123,
+  "projectId": "xyz789",
+  "scanNodeConfirmations": scanNodeFilters,
+  "severities": ["xyz789"],
+  "transactionHash": "xyz789",
+  "labelMetadata": "abc123",
+  "afterCreatedAtDate": "xyz789",
+  "beforeCreatedAtDate": "abc123"
+}
+
+```
+
+`{
+  "addresses": ["abc123"],
+  "after": AlertEndCursorInput,
+  "alertId": "xyz789",
+  "alertIds": ["abc123"],
+  "alertHash": "xyz789",
+  "alertName": "xyz789",
+  "blockDateRange": DateRange,
+  "blockNumberRange": BlockRange,
+  "blockTimestampRange": TimestampRange,
+  "blockSortDirection": "asc",
+  "bots": ["abc123"],
+  "chainId": 123,
+  "createdSince": 123,
+  "createdBefore": 123,
+  "first": 123,
+  "projectId": "xyz789",
+  "scanNodeConfirmations": scanNodeFilters,
+  "severities": ["xyz789"],
+  "transactionHash": "xyz789",
+  "labelMetadata": "abc123",
+  "afterCreatedAtDate": "xyz789",
+  "beforeCreatedAtDate": "abc123"
+}
+`[Types](#group-Types)## AlertsResponse
+
+##### Fields
+
+`alerts`[[Alert]](#definition-Alert)`[Alert]``pageInfo`[AlertPageInfo](#definition-AlertPageInfo)`AlertPageInfo`##### Example
+
+```
+{
+  "alerts": [Alert],
+  "pageInfo": AlertPageInfo
+}
+
+```
+
+`{
+  "alerts": [Alert],
+  "pageInfo": AlertPageInfo
+}
+`[Types](#group-Types)## Batch
+
+##### Description
+
+Batch information
+
+##### Fields
+
+`id`[String](#definition-String)`String``parentId`[String](#definition-String)`String``createdAt`[String](#definition-String)`String``chainId`[NonNegativeInt](#definition-NonNegativeInt)`NonNegativeInt``scanNodeId`[String](#definition-String)`String``receiptId`[String](#definition-String)`String`##### Example
+
+```
+{
+  "id": "abc123",
+  "parentId": "xyz789",
+  "createdAt": "abc123",
+  "chainId": 123,
+  "scanNodeId": "xyz789",
+  "receiptId": "xyz789"
+}
+
+```
+
+`{
+  "id": "abc123",
+  "parentId": "xyz789",
+  "createdAt": "abc123",
+  "chainId": 123,
+  "scanNodeId": "xyz789",
+  "receiptId": "xyz789"
+}
+`[Types](#group-Types)## BatchEndCursor
+
+##### Fields
+
+`createdAt`[String](#definition-String)`String`##### Example
+
+```
+{"createdAt": "xyz789"}
+
+```
+
+`{"createdAt": "xyz789"}
+`[Types](#group-Types)## BatchEndCursorInput
+
+##### Description
+
+Search after specified batch after id
+
+##### Fields
+
+`createdAt`[DateTime](#definition-DateTime)`DateTime`##### Example
+
+```
+{"createdAt": "2007-12-03T10:15:30Z"}
+
+```
+
+`{"createdAt": "2007-12-03T10:15:30Z"}
+`[Types](#group-Types)## BatchPageInfo
+
+##### Fields
+
+`endCursor`[BatchEndCursor](#definition-BatchEndCursor)`BatchEndCursor``hasNextPage`[Boolean](#definition-Boolean)`Boolean``totalBatches`[TotalMetadata!](#definition-TotalMetadata)`TotalMetadata!`##### Example
+
+```
+{
+  "endCursor": BatchEndCursor,
+  "hasNextPage": true,
+  "totalBatches": TotalMetadata
+}
+
+```
+
+`{
+  "endCursor": BatchEndCursor,
+  "hasNextPage": true,
+  "totalBatches": TotalMetadata
+}
+`[Types](#group-Types)## BatchesInput
+
+##### Description
+
+Batch list input
+
+##### Fields
+
+`after`[BatchEndCursorInput](#definition-BatchEndCursorInput)`BatchEndCursorInput``parentId`[String](#definition-String)`String``scanNodeId`[String](#definition-String)`String``receiptId`[String](#definition-String)`String``chainId`[NonNegativeInt](#definition-NonNegativeInt)`NonNegativeInt``first`[NonNegativeInt](#definition-NonNegativeInt)`NonNegativeInt``createdRange`[TimestampRange](#definition-TimestampRange)`TimestampRange`##### Example
+
+```
+{
+  "after": BatchEndCursorInput,
+  "parentId": "xyz789",
+  "scanNodeId": "abc123",
+  "receiptId": "xyz789",
+  "chainId": 123,
+  "first": 123,
+  "createdRange": TimestampRange
+}
+
+```
+
+`{
+  "after": BatchEndCursorInput,
+  "parentId": "xyz789",
+  "scanNodeId": "abc123",
+  "receiptId": "xyz789",
+  "chainId": 123,
+  "first": 123,
+  "createdRange": TimestampRange
+}
+`[Types](#group-Types)## BatchesResponse
+
+##### Fields
+
+`batches`[[Batch]](#definition-Batch)`[Batch]``pageInfo`[BatchPageInfo](#definition-BatchPageInfo)`BatchPageInfo`##### Example
+
+```
+{
+  "batches": [Batch],
+  "pageInfo": BatchPageInfo
+}
+
+```
+
+`{
+  "batches": [Batch],
+  "pageInfo": BatchPageInfo
+}
+`[Types](#group-Types)## Block
+
+##### Description
+
+Block information
+
+##### Fields
+
+`number`[NonNegativeInt](#definition-NonNegativeInt)`NonNegativeInt``hash`[String](#definition-String)`String``timestamp`[String](#definition-String)`String``chainId`[NonNegativeInt](#definition-NonNegativeInt)`NonNegativeInt`##### Example
+
+```
+{
+  "number": 123,
+  "hash": "abc123",
+  "timestamp": "abc123",
+  "chainId": 123
+}
+
+```
+
+`{
+  "number": 123,
+  "hash": "abc123",
+  "timestamp": "abc123",
+  "chainId": 123
+}
+`[Types](#group-Types)## BlockRange
+
+##### Description
+
+Block range
+
+##### Fields
+
+`startBlockNumber`[NonNegativeInt!](#definition-NonNegativeInt)`NonNegativeInt!``endBlockNumber`[NonNegativeInt!](#definition-NonNegativeInt)`NonNegativeInt!`##### Example
+
+```
+{"startBlockNumber": 123, "endBlockNumber": 123}
+
+```
+
+`{"startBlockNumber": 123, "endBlockNumber": 123}
+`[Types](#group-Types)## BloomFilter
+
+##### Description
+
+Bloom filter information
+
+##### Fields
+
+`k`[String](#definition-String)`String``m`[String](#definition-String)`String``bitset`[String](#definition-String)`String``itemCount`[NonNegativeInt](#definition-NonNegativeInt)`NonNegativeInt`##### Example
+
+```
+{
+  "k": "xyz789",
+  "m": "abc123",
+  "bitset": "abc123",
+  "itemCount": 123
+}
+
+```
+
+`{
+  "k": "xyz789",
+  "m": "abc123",
+  "bitset": "abc123",
+  "itemCount": 123
+}
+`[Types](#group-Types)## Boolean
+
+##### Description
+
+The Boolean scalar type represents true or false.
+
+`Boolean``true``false`[Types](#group-Types)## Bot
+
+##### Description
+
+Bot information
+
+##### Fields
+
+`chainIds`[[String]](#definition-String)`[String]``createdAt`[String](#definition-String)`String``description`[String](#definition-String)`String``developer`[String](#definition-String)`String``docReference`[String](#definition-String)`String``enabled`[Boolean](#definition-Boolean)`Boolean``id`[String](#definition-String)`String``image`[String](#definition-String)`String``name`[String](#definition-String)`String``reference`[String](#definition-String)`String``repository`[String](#definition-String)`String``projects`[[String]](#definition-String)`[String]``scanNodes`[[String]](#definition-String)`[String]``version`[String](#definition-String)`String`##### Example
+
+```
+{
+  "chainIds": ["abc123"],
+  "createdAt": "xyz789",
+  "description": "xyz789",
+  "developer": "abc123",
+  "docReference": "abc123",
+  "enabled": false,
+  "id": "xyz789",
+  "image": "abc123",
+  "name": "abc123",
+  "reference": "abc123",
+  "repository": "abc123",
+  "projects": ["xyz789"],
+  "scanNodes": ["xyz789"],
+  "version": "abc123"
+}
+
+```
+
+`{
+  "chainIds": ["abc123"],
+  "createdAt": "xyz789",
+  "description": "xyz789",
+  "developer": "abc123",
+  "docReference": "abc123",
+  "enabled": false,
+  "id": "xyz789",
+  "image": "abc123",
+  "name": "abc123",
+  "reference": "abc123",
+  "repository": "abc123",
+  "projects": ["xyz789"],
+  "scanNodes": ["xyz789"],
+  "version": "abc123"
+}
+`[Types](#group-Types)## BotEndCursor
+
+##### Fields
+
+`createdAt`[String](#definition-String)`String`##### Example
+
+```
+{"createdAt": "xyz789"}
+
+```
+
+`{"createdAt": "xyz789"}
+`[Types](#group-Types)## BotEndCursorInput
+
+##### Description
+
+Search after specified bot createdAt
+
+##### Fields
+
+`createdAt`[Timestamp](#definition-Timestamp)`Timestamp`##### Example
+
+```
+{"createdAt": 1592577642}
+
+```
+
+`{"createdAt": 1592577642}
+`[Types](#group-Types)## BotInfo
+
+##### Fields
+
+`image`[String](#definition-String)`String``imageHash`[String](#definition-String)`String``id`[String](#definition-String)`String``manifest`[String](#definition-String)`String`##### Example
+
+```
+{
+  "image": "abc123",
+  "imageHash": "abc123",
+  "id": "xyz789",
+  "manifest": "xyz789"
+}
+
+```
+
+`{
+  "image": "abc123",
+  "imageHash": "abc123",
+  "id": "xyz789",
+  "manifest": "xyz789"
+}
+`[Types](#group-Types)## BotPageInfo
+
+##### Fields
+
+`endCursor`[BotEndCursor](#definition-BotEndCursor)`BotEndCursor``hasNextPage`[Boolean](#definition-Boolean)`Boolean``totalBots`[TotalMetadata!](#definition-TotalMetadata)`TotalMetadata!`##### Example
+
+```
+{
+  "endCursor": BotEndCursor,
+  "hasNextPage": false,
+  "totalBots": TotalMetadata
+}
+
+```
+
+`{
+  "endCursor": BotEndCursor,
+  "hasNextPage": false,
+  "totalBots": TotalMetadata
+}
+`[Types](#group-Types)## BotsInput
+
+##### Description
+
+Bot list input
+
+##### Fields
+
+`after`[BotEndCursorInput](#definition-BotEndCursorInput)`BotEndCursorInput``first`[NonNegativeInt](#definition-NonNegativeInt)`NonNegativeInt``ids`[[String]](#definition-String)`[String]``name`[String](#definition-String)`String``developer`[String](#definition-String)`String``createdAtSortDirection`[Sort](#definition-Sort)`Sort``enabled`[Boolean](#definition-Boolean)`Boolean`##### Example
+
+```
+{
+  "after": BotEndCursorInput,
+  "first": 123,
+  "ids": ["xyz789"],
+  "name": "abc123",
+  "developer": "abc123",
+  "createdAtSortDirection": "asc",
+  "enabled": true
+}
+
+```
+
+`{
+  "after": BotEndCursorInput,
+  "first": 123,
+  "ids": ["xyz789"],
+  "name": "abc123",
+  "developer": "abc123",
+  "createdAtSortDirection": "asc",
+  "enabled": true
+}
+`[Types](#group-Types)## BotsResponse
+
+##### Fields
+
+`bots`[[Bot]](#definition-Bot)`[Bot]``pageInfo`[BotPageInfo](#definition-BotPageInfo)`BotPageInfo`##### Example
+
+```
+{
+  "bots": [Bot],
+  "pageInfo": BotPageInfo
+}
+
+```
+
+`{
+  "bots": [Bot],
+  "pageInfo": BotPageInfo
+}
+`[Types](#group-Types)## Contacts
+
+##### Description
+
+Project Contact Information
+
+##### Fields
+
+`generalEmailAddress`[EmailAddress](#definition-EmailAddress)`EmailAddress``securityEmailAddress`[EmailAddress](#definition-EmailAddress)`EmailAddress`##### Example
+
+```
+{
+  "generalEmailAddress": "test@test.com",
+  "securityEmailAddress": "test@test.com"
+}
+
+```
+
+`{
+  "generalEmailAddress": "test@test.com",
+  "securityEmailAddress": "test@test.com"
+}
+`[Types](#group-Types)## Contract
+
+##### Description
+
+Smart Contract Information
+
+##### Fields
+
+`address`[String!](#definition-String)`String!``name`[String!](#definition-String)`String!``projectId`[String!](#definition-String)`String!`##### Example
+
+```
+{
+  "address": "abc123",
+  "name": "abc123",
+  "projectId": "xyz789"
+}
+
+```
+
+`{
+  "address": "abc123",
+  "name": "abc123",
+  "projectId": "xyz789"
+}
+`[Types](#group-Types)## DateRange
+
+##### Description
+
+Date range Date format: YYYY-MM-DD
+
+##### Fields
+
+`startDate`[LocalDate!](#definition-LocalDate)`LocalDate!``endDate`[LocalDate!](#definition-LocalDate)`LocalDate!`##### Example
+
+```
+{
+  "startDate": "2020-07-19",
+  "endDate": "2020-07-19"
+}
+
+```
+
+`{
+  "startDate": "2020-07-19",
+  "endDate": "2020-07-19"
+}
+`[Types](#group-Types)## DateTime
+
+##### Description
+
+A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the date-time format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+
+`date-time`##### Example
+
+```
+"2007-12-03T10:15:30Z"
+
+```
+
+`"2007-12-03T10:15:30Z"
+`[Types](#group-Types)## EmailAddress
+
+##### Description
+
+A field whose value conforms to the standard internet email address format as specified in RFC822: https://www.w3.org/Protocols/rfc822/.
+
+[https://www.w3.org/Protocols/rfc822/](https://www.w3.org/Protocols/rfc822/)##### Example
+
+```
+"test@test.com"
+
+```
+
+`"test@test.com"
+`[Types](#group-Types)## Float
+
+##### Description
+
+The Float scalar type represents signed double-precision fractional values as specified by IEEE 754.
+
+`Float`[IEEE 754](https://en.wikipedia.org/wiki/IEEE_floating_point)##### Example
+
+```
+123.45
+
+```
+
+`123.45
+`[Types](#group-Types)## Int
+
+##### Description
+
+The Int scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.
+
+`Int`##### Example
+
+```
+987
+
+```
+
+`987
+`[Types](#group-Types)## JSONObject
+
+##### Description
+
+The JSONObject scalar type represents JSON objects as specified by ECMA-404.
+
+`JSONObject`[ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)##### Example
+
+```
+{}
+
+```
+
+`{}
+`[Types](#group-Types)## Label
+
+##### Description
+
+Label information
+
+##### Fields
+
+`label`[String](#definition-String)`String``confidence`[Float](#definition-Float)`Float``entity`[String](#definition-String)`String``entityType`[String](#definition-String)`String``remove`[Boolean](#definition-Boolean)`Boolean``metadata`[[String]](#definition-String)`[String]`##### Example
+
+```
+{
+  "label": "abc123",
+  "confidence": 123.45,
+  "entity": "xyz789",
+  "entityType": "abc123",
+  "remove": false,
+  "metadata": ["xyz789"]
+}
+
+```
+
+`{
+  "label": "abc123",
+  "confidence": 123.45,
+  "entity": "xyz789",
+  "entityType": "abc123",
+  "remove": false,
+  "metadata": ["xyz789"]
+}
+`[Types](#group-Types)## LabelEndCursor
+
+##### Fields
+
+`pageToken`[String](#definition-String)`String`##### Example
+
+```
+{"pageToken": "abc123"}
+
+```
+
+`{"pageToken": "abc123"}
+`[Types](#group-Types)## LabelEndCursorInput
+
+##### Description
+
+Search after specified pageToken
+
+##### Fields
+
+`pageToken`[String!](#definition-String)`String!`##### Example
+
+```
+{"pageToken": "abc123"}
+
+```
+
+`{"pageToken": "abc123"}
+`[Types](#group-Types)## LabelEvent
+
+##### Description
+
+Label event information
+
+##### Fields
+
+`id`[String](#definition-String)`String``label`[Label](#definition-Label)`Label``source`[LabelSource](#definition-LabelSource)`LabelSource``createdAt`[String](#definition-String)`String`##### Example
+
+```
+{
+  "id": "abc123",
+  "label": Label,
+  "source": LabelSource,
+  "createdAt": "abc123"
+}
+
+```
+
+`{
+  "id": "abc123",
+  "label": Label,
+  "source": LabelSource,
+  "createdAt": "abc123"
+}
+`[Types](#group-Types)## LabelPageInfo
+
+##### Fields
+
+`endCursor`[LabelEndCursor!](#definition-LabelEndCursor)`LabelEndCursor!``hasNextPage`[Boolean!](#definition-Boolean)`Boolean!`##### Example
+
+```
+{"endCursor": LabelEndCursor, "hasNextPage": true}
+
+```
+
+`{"endCursor": LabelEndCursor, "hasNextPage": true}
+`[Types](#group-Types)## LabelSource
+
+##### Fields
+
+`bot`[BotInfo](#definition-BotInfo)`BotInfo``alertHash`[String](#definition-String)`String``alertId`[String](#definition-String)`String``id`[String](#definition-String)`String``chainId`[NonNegativeInt](#definition-NonNegativeInt)`NonNegativeInt`##### Example
+
+```
+{
+  "bot": BotInfo,
+  "alertHash": "abc123",
+  "alertId": "xyz789",
+  "id": "xyz789",
+  "chainId": 123
+}
+
+```
+
+`{
+  "bot": BotInfo,
+  "alertHash": "abc123",
+  "alertId": "xyz789",
+  "id": "xyz789",
+  "chainId": 123
+}
+`[Types](#group-Types)## LabelsInput
+
+##### Description
+
+Labels input
+
+##### Fields
+
+`entities`[[String]](#definition-String)`[String]``labels`[[String]](#definition-String)`[String]``sourceIds`[[String]](#definition-String)`[String]``chainIds`[[NonNegativeInt]](#definition-NonNegativeInt)`[NonNegativeInt]``entityType`[String](#definition-String)`String``metadata`[JSONObject](#definition-JSONObject)`JSONObject``excludedMetadata`[JSONObject](#definition-JSONObject)`JSONObject``createdSince`[NonNegativeInt](#definition-NonNegativeInt)`NonNegativeInt``createdBefore`[NonNegativeInt](#definition-NonNegativeInt)`NonNegativeInt``afterCreatedAtDate`[String](#definition-String)`String``beforeCreatedAtDate`[String](#definition-String)`String``after`[LabelEndCursorInput](#definition-LabelEndCursorInput)`LabelEndCursorInput``first`[NonNegativeInt](#definition-NonNegativeInt)`NonNegativeInt``state`[Boolean](#definition-Boolean)`Boolean`##### Example
+
+```
+{
+  "entities": ["abc123"],
+  "labels": ["abc123"],
+  "sourceIds": ["abc123"],
+  "chainIds": [123],
+  "entityType": "xyz789",
+  "metadata": {},
+  "excludedMetadata": {},
+  "createdSince": 123,
+  "createdBefore": 123,
+  "afterCreatedAtDate": "abc123",
+  "beforeCreatedAtDate": "xyz789",
+  "after": LabelEndCursorInput,
+  "first": 123,
+  "state": false
+}
+
+```
+
+`{
+  "entities": ["abc123"],
+  "labels": ["abc123"],
+  "sourceIds": ["abc123"],
+  "chainIds": [123],
+  "entityType": "xyz789",
+  "metadata": {},
+  "excludedMetadata": {},
+  "createdSince": 123,
+  "createdBefore": 123,
+  "afterCreatedAtDate": "abc123",
+  "beforeCreatedAtDate": "xyz789",
+  "after": LabelEndCursorInput,
+  "first": 123,
+  "state": false
+}
+`[Types](#group-Types)## LabelsResponse
+
+##### Fields
+
+`labels`[[LabelEvent]](#definition-LabelEvent)`[LabelEvent]``pageInfo`[LabelPageInfo](#definition-LabelPageInfo)`LabelPageInfo`##### Example
+
+```
+{
+  "labels": [LabelEvent],
+  "pageInfo": LabelPageInfo
+}
+
+```
+
+`{
+  "labels": [LabelEvent],
+  "pageInfo": LabelPageInfo
+}
+`[Types](#group-Types)## LocalDate
+
+##### Description
+
+A local date string (i.e., with no associated timezone) in YYYY-MM-DD format, e.g. 2020-01-01.
+
+`YYYY-MM-DD``2020-01-01`##### Example
+
+```
+"2020-07-19"
+
+```
+
+`"2020-07-19"
+`[Types](#group-Types)## NonNegativeInt
+
+##### Description
+
+Integers that will have a value of 0 or more.
+
+##### Example
+
+```
+123
+
+```
+
+`123
+`[Types](#group-Types)## Project
+
+##### Description
+
+Web3 Project Information
+
+##### Fields
+
+`contacts`[Contacts](#definition-Contacts)`Contacts``name`[String!](#definition-String)`String!``id`[String!](#definition-String)`String!``social`[Social](#definition-Social)`Social``token`[Token](#definition-Token)`Token``website`[String](#definition-String)`String`##### Example
+
+```
+{
+  "contacts": Contacts,
+  "name": "xyz789",
+  "id": "xyz789",
+  "social": Social,
+  "token": Token,
+  "website": "xyz789"
+}
+
+```
+
+`{
+  "contacts": Contacts,
+  "name": "xyz789",
+  "id": "xyz789",
+  "social": Social,
+  "token": Token,
+  "website": "xyz789"
+}
+`[Types](#group-Types)## ProjectEdge
+
+##### Fields
+
+`cursor`[String](#definition-String)`String``node`[Project](#definition-Project)`Project`##### Example
+
+```
+{
+  "cursor": "xyz789",
+  "node": Project
+}
+
+```
+
+`{
+  "cursor": "xyz789",
+  "node": Project
+}
+`[Types](#group-Types)## ProjectPageInfo
+
+##### Fields
+
+`endCursor`[String](#definition-String)`String``hasNextPage`[Boolean](#definition-Boolean)`Boolean``totalProjects`[TotalMetadata!](#definition-TotalMetadata)`TotalMetadata!`##### Example
+
+```
+{
+  "endCursor": "xyz789",
+  "hasNextPage": true,
+  "totalProjects": TotalMetadata
+}
+
+```
+
+`{
+  "endCursor": "xyz789",
+  "hasNextPage": true,
+  "totalProjects": TotalMetadata
+}
+`[Types](#group-Types)## ProjectsInput
+
+##### Fields
+
+`first`[Int](#definition-Int)`Int``after`[String](#definition-String)`String`##### Example
+
+```
+{"first": 987, "after": "xyz789"}
+
+```
+
+`{"first": 987, "after": "xyz789"}
+`[Types](#group-Types)## ProjectsResponse
+
+##### Fields
+
+`edges`[[ProjectEdge]](#definition-ProjectEdge)`[ProjectEdge]``pageInfo`[ProjectPageInfo](#definition-ProjectPageInfo)`ProjectPageInfo`##### Example
+
+```
+{
+  "edges": [ProjectEdge],
+  "pageInfo": ProjectPageInfo
+}
+
+```
+
+`{
+  "edges": [ProjectEdge],
+  "pageInfo": ProjectPageInfo
+}
+`[Types](#group-Types)## Relation
+
+##### Values
+
+eq
+
+`eq`gte
+
+`gte`##### Example
+
+```
+"eq"
+
+```
+
+`"eq"
+`[Types](#group-Types)## Social
+
+##### Description
+
+Social Media Links
+
+##### Fields
+
+`coingecko`[String](#definition-String)`String``everest`[String](#definition-String)`String``github`[String](#definition-String)`String``twitter`[String](#definition-String)`String`##### Example
+
+```
+{
+  "coingecko": "xyz789",
+  "everest": "abc123",
+  "github": "abc123",
+  "twitter": "xyz789"
+}
+
+```
+
+`{
+  "coingecko": "xyz789",
+  "everest": "abc123",
+  "github": "abc123",
+  "twitter": "xyz789"
+}
+`[Types](#group-Types)## Sort
+
+##### Values
+
+asc
+
+`asc`desc
+
+`desc`##### Example
+
+```
+"asc"
+
+```
+
+`"asc"
+`[Types](#group-Types)## SourceAlertEvent
+
+##### Description
+
+Source alert information
+
+##### Fields
+
+`hash`[String](#definition-String)`String``botId`[String](#definition-String)`String``timestamp`[String](#definition-String)`String``chainId`[NonNegativeInt](#definition-NonNegativeInt)`NonNegativeInt`##### Example
+
+```
+{
+  "hash": "abc123",
+  "botId": "abc123",
+  "timestamp": "abc123",
+  "chainId": 123
+}
+
+```
+
+`{
+  "hash": "abc123",
+  "botId": "abc123",
+  "timestamp": "abc123",
+  "chainId": 123
+}
+`[Types](#group-Types)## String
+
+##### Description
+
+The String scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
+
+`String`##### Example
+
+```
+"abc123"
+
+```
+
+`"abc123"
+`[Types](#group-Types)## Timestamp
+
+##### Description
+
+The javascript Date as integer. Type represents date and time as number of milliseconds from start of UNIX epoch.
+
+`Date`##### Example
+
+```
+1592577642
+
+```
+
+`1592577642
+`[Types](#group-Types)## TimestampRange
+
+##### Description
+
+Timestamp range Timestamp format: number of milliseconds from start of UNIX epoch
+
+##### Fields
+
+`startTimestamp`[Timestamp!](#definition-Timestamp)`Timestamp!``endTimestamp`[Timestamp!](#definition-Timestamp)`Timestamp!`##### Example
+
+```
+{"startTimestamp": 1592577642, "endTimestamp": 1592577642}
+
+```
+
+`{"startTimestamp": 1592577642, "endTimestamp": 1592577642}
+`[Types](#group-Types)## Token
+
+##### Description
+
+Project Token Information
+
+##### Fields
+
+`address`[String!](#definition-String)`String!``chainId`[Int!](#definition-Int)`Int!``decimals`[Int](#definition-Int)`Int``name`[String](#definition-String)`String``symbol`[String](#definition-String)`String`##### Example
+
+```
+{
+  "address": "xyz789",
+  "chainId": 987,
+  "decimals": 123,
+  "name": "abc123",
+  "symbol": "abc123"
+}
+
+```
+
+`{
+  "address": "xyz789",
+  "chainId": 987,
+  "decimals": 123,
+  "name": "abc123",
+  "symbol": "abc123"
+}
+`[Types](#group-Types)## TotalMetadata
+
+##### Description
+
+Metadata about the number of matching items
+
+##### Fields
+
+`value`[NonNegativeInt!](#definition-NonNegativeInt)`NonNegativeInt!``relation`[Relation!](#definition-Relation)`Relation!`##### Example
+
+```
+{"value": 123, "relation": "eq"}
+
+```
+
+`{"value": 123, "relation": "eq"}
+`[Types](#group-Types)## scanNodeFilters
+
+##### Description
+
+Filter by number of scan nodes confirming the alert.
+
+##### Fields
+
+`gte`[NonNegativeInt](#definition-NonNegativeInt)`NonNegativeInt``lte`[NonNegativeInt](#definition-NonNegativeInt)`NonNegativeInt`##### Example
+
+```
+{"gte": 123, "lte": 123}
+
+```
+
+`{"gte": 123, "lte": 123}
+`
